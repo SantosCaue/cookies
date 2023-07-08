@@ -24,6 +24,7 @@
       if (username === "admin" && password === "password") {
         var cookieValue = "loggedIn";
         document.cookie = "loginStatus=" + cookieValue + "; expires=Thu, 31 Dec 2025 23:59:59 UTC; path=/";
+        document.cookie = "username=" + username + "; expires=Thu, 31 Dec 2025 23:59:59 UTC; path=/";
         alert("Login successful!");
         window.location.href = "dashboard.html"; // Redirect to the dashboard page
       } else {
