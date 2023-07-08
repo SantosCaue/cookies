@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Page</title>
+</head>
+<body>
+  <h1>Login Page</h1>
+  <form id="loginForm" onsubmit="setCookie(event)">
+    <label for="username">Username:</label>
+    <input type="text" id="username" required><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" required><br>
+    <button type="submit">Login</button>
+  </form>
+
+  <script>
+    function setCookie(event) {
+      event.preventDefault();
+
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+
+      // Simulate login validation
+      if (username === "admin" && password === "password") {
+        var cookieValue = "loggedIn";
+        document.cookie = "loginStatus=" + cookieValue + "; expires=Thu, 31 Dec 2025 23:59:59 UTC; path=/";
+        alert("Login successful!");
+        window.location.href = "dashboard.html"; // Redirect to the dashboard page
+      } else {
+        alert("Invalid username or password. Please try again.");
+      }
+    }
+  </script>
+</body>
+</html>

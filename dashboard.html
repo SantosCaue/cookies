@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+</head>
+<body>
+  <h1>Welcome to the Dashboard</h1>
+  <p id="userInfo"></p>
+
+  <script>
+    function getCookie(name) {
+      var cookieArr = document.cookie.split("; ");
+      for (var i = 0; i < cookieArr.length; i++) {
+        var cookiePair = cookieArr[i].split("=");
+        if (name === cookiePair[0]) {
+          return cookiePair[1];
+        }
+      }
+      return null;
+    }
+
+    function checkLoginStatus() {
+      var loginStatus = getCookie("loginStatus");
+      if (loginStatus === "loggedIn") {
+        var username = getCookie("username");
+        document.getElementById("userInfo").innerText = "Logged in as: " + username;
+      } else {
+        window.location.href = "index.html"; // Redirect to the login page
+      }
+    }
+
+    window.onload = function() {
+      checkLoginStatus(); // Check login status when the page loads
+    };
+  </script>
+</body>
+</html>
